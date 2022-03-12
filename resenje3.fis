@@ -1,0 +1,45 @@
+[System]
+Name='resenje3'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='e'
+Range=[-4 4]
+NumMFs=3
+MF1='neg':'trimf',[-7.33 -4 0]
+MF2='nula':'trimf',[-1 0 1]
+MF3='poz':'trimf',[0 4 7.25]
+
+[Input2]
+Name='de'
+Range=[-0.18 0.18]
+NumMFs=3
+MF1='neg':'trimf',[-0.33 -0.18 0]
+MF2='nula':'trimf',[-0.0472 0 0.0472]
+MF3='poz':'trimf',[0 0.18 0.33]
+
+[Output1]
+Name='u'
+Range=[-0.012 0.012]
+NumMFs=5
+MF1='malo':'trapmf',[-0.021 -0.013 -0.011 -0.0025]
+MF2='srednje':'trimf',[-0.0025 0 0.0025]
+MF3='veliko':'trapmf',[0.0025 0.00997 0.012 0.02]
+MF4='srednjeVelika':'trimf',[0 0.0025 0.005]
+MF5='srednjeMala':'trimf',[-0.005 -0.0025 0]
+
+[Rules]
+1 0, 1 (1) : 1
+3 0, 3 (1) : 1
+2 2, 2 (1) : 1
+2 1, 5 (1) : 1
+2 3, 4 (1) : 1
